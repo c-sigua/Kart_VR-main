@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Karting/Scenes/IntroMenu.unity
+    guid: d29260d8d84c94bd7ac95807b3da99d4
+  - enabled: 1
+    path: Assets/Karting/Scenes/Level_Medium.unity
+    guid: 92786e23da2af4a4f8803aaf44c47121
+  - enabled: 1
+    path: Assets/Karting/Scenes/Level_Hard.unity
+    guid: 4141d9e56a654bc43bcb3ce67f906e73
+  - enabled: 1
+    path: Assets/Karting/Scenes/LoseScene.unity
+    guid: 9c449e01147824b419cda406398fb2e7
+  - enabled: 1
+    path: Assets/Karting/Scenes/WinScene.unity
+    guid: d6801f2e59f75ee4b919cf5da4e48e3b
+  - enabled: 1
+    path: Assets/Karting/Scenes/Level_Easy.unity
+    guid: 5c831053573900e4295789be7a73387d
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 13f95caf076db98409ea09fe8f7ef947,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c904871c5cd05b4c9712b4ea4eca416,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 71c8e61af60d03d4aa676d00601e0d03,
+      type: 2}
