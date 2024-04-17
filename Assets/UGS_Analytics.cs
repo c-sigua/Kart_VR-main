@@ -19,6 +19,8 @@ public class UGS_Analytics : MonoBehaviour
             await UnityServices.InitializeAsync();
             if (ConsentForm.dataConsent == true)
             {
+                Debug.Log("data consent registered as true");
+
                 GiveConsent();
                 PlayTimeCustomEvent();
                 if (KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Medium") && KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Hard") && KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Easy")) // checks if every level has been completed
@@ -74,6 +76,7 @@ public class UGS_Analytics : MonoBehaviour
 
     public void OnApplicationQuit() //used to send user behavior data once the player exits the game, so that it does not report multiple times
     {
+        Debug.Log("Application Quit Registered");
         Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 { "isCompletionist", isCompletionist},
@@ -82,6 +85,10 @@ public class UGS_Analytics : MonoBehaviour
             };
 
         AnalyticsService.Instance.CustomData("playerBehavior", parameters);
+        AnalyticsService.Instance.Flush();
+        Debug.Log("flushed");
+
+
 
     }
 }
