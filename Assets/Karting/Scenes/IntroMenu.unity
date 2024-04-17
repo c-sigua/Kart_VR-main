@@ -269,6 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65933356}
+  - component: {fileID: 65933357}
   m_Layer: 5
   m_Name: ConsentImage
   m_TagString: Untagged
@@ -299,6 +300,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 27.5}
   m_SizeDelta: {x: 984, y: 385}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &65933357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65933355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6886c4c0064af47b1444e1d2155731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToHide: {fileID: 0}
+  itemToShow: {fileID: 0}
 --- !u!1 &117466289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906286932}
   - component: {fileID: 1906286933}
+  - component: {fileID: 1906286934}
   m_Layer: 0
   m_Name: MenuNavigation
   m_TagString: Untagged
@@ -3559,6 +3575,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSelection: {fileID: 129299356}
+--- !u!114 &1906286934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906286930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6886c4c0064af47b1444e1d2155731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToHide: {fileID: 65933355}
+  itemToShow: {fileID: 1721453173}
 --- !u!1 &1947208091
 GameObject:
   m_ObjectHideFlags: 0

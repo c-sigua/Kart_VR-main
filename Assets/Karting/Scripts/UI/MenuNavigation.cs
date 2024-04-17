@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class MenuNavigation : MonoBehaviour
 {
     public Selectable defaultSelection;
+    public static int timesMenuLoaded = 0;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         EventSystem.current.SetSelectedGameObject(null);
+        timesMenuLoaded++;
     }
 
     void LateUpdate()
