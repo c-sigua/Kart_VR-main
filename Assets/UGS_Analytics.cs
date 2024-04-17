@@ -22,7 +22,7 @@ public class UGS_Analytics : MonoBehaviour
                 Debug.Log("data consent registered as true");
 
                 GiveConsent();
-                PlayTimeCustomEvent();
+                //PlayTimeCustomEvent();
                 if (KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Medium") && KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Hard") && KartGame.UI.LoadSceneButton.playedLevels.Contains("Level_Easy")) // checks if every level has been completed
                 {
                     isCompletionist = true;
@@ -31,7 +31,7 @@ public class UGS_Analytics : MonoBehaviour
                 {
                     isResilient = true;
                 }
-                if ((int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Easy"] == 0 && (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Medium"] == 0 && (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Easy"] > 1)
+                if ((int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Easy"] == 0 && (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Medium"] == 0 && (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Hard"] > 0)
                 {
                     isBold = true;
                 }
@@ -71,24 +71,28 @@ public class UGS_Analytics : MonoBehaviour
     {
         // Call if consent has been given by the user
         AnalyticsService.Instance.StartDataCollection();
-        Debug.Log($"Consent has been provided. The SDK is now collecting data!");
+        //Debug.Log($"Consent has been provided. The SDK is now collecting data!");
     }
 
     public void OnApplicationQuit() //used to send user behavior data once the player exits the game, so that it does not report multiple times
     {
-        Debug.Log("Application Quit Registered");
-        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        if (ConsentForm.dataConsent == true)
+        {
+            Debug.Log("Application Quit Registered");
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 { "isCompletionist", isCompletionist},
                 { "isResilient", isResilient },
                 { "isBold", isBold}
             };
 
-        AnalyticsService.Instance.CustomData("playerBehavior", parameters);
-        AnalyticsService.Instance.Flush();
-        Debug.Log("flushed");
-
-
-
+            AnalyticsService.Instance.CustomData("playerBehavior", parameters);
+            AnalyticsService.Instance.Flush();
+            Debug.Log("flushed, data sent");
+        }
+        else 
+        {
+            Debug.Log("consent was not given, data not sent");
+        }
     }
 }
