@@ -6,8 +6,8 @@ using UnityEngine;
 public class showOrHide : MonoBehaviour
 {
 
-    public GameObject itemToHide;
-    public GameObject itemToShow;
+    private GameObject itemToHide;
+    private GameObject itemToShow;
 
     // Start is called before the first frame update
     void Start()

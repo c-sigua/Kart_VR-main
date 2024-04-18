@@ -67,6 +67,29 @@ public class UGS_Analytics : MonoBehaviour
 
     }
 
+    public void PlayerBehaviorCustomEvent()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "isCompletionist", isCompletionist},
+                { "isResilient", isResilient },
+                { "isBold", isBold}
+            };
+
+        AnalyticsService.Instance.CustomData("playerBehavior", parameters);
+    }
+
+    public void PlayerDemographicsCustomEvent()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "age", SliderScript.userAge},
+                { "gender", DropdownScript.userGender },
+            };
+
+        AnalyticsService.Instance.CustomData("playerDemographics", parameters);
+    }
+
     public void GiveConsent()
     {
         // Call if consent has been given by the user
@@ -78,17 +101,12 @@ public class UGS_Analytics : MonoBehaviour
     {
         if (ConsentForm.dataConsent == true)
         {
-            Debug.Log("Application Quit Registered");
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
-            {
-                { "isCompletionist", isCompletionist},
-                { "isResilient", isResilient },
-                { "isBold", isBold}
-            };
-
-            AnalyticsService.Instance.CustomData("playerBehavior", parameters);
+            PlayerDemographicsCustomEvent();
+            //Debug.Log(SliderScript.userAge);
+            //Debug.Log(DropdownScript.userGender);
+            PlayerBehaviorCustomEvent();
             AnalyticsService.Instance.Flush();
-            Debug.Log("flushed, data sent");
+          
         }
         else 
         {
