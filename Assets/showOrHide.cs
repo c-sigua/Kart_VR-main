@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class showOrHide : MonoBehaviour
 {
-
-    private GameObject itemToHide;
-    private GameObject itemToShow;
+    [SerializeField] private GameObject itemToHide;
+    [SerializeField] private GameObject itemToShow;
 
     // Start is called before the first frame update
     void Start()
