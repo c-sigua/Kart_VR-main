@@ -97,6 +97,23 @@ public class UGS_Analytics : MonoBehaviour
         //Debug.Log($"Consent has been provided. The SDK is now collecting data!");
     }
 
+    public void OnClose()
+    {
+        if (ConsentForm.dataConsent == true)
+        {
+            PlayerDemographicsCustomEvent();
+            //Debug.Log(SliderScript.userAge);
+            //Debug.Log(DropdownScript.userGender);
+            PlayerBehaviorCustomEvent();
+            AnalyticsService.Instance.Flush();
+
+        }
+        else
+        {
+            Debug.Log("consent was not given, data not sent");
+        }
+    }
+
     public void OnApplicationQuit() //used to send user behavior data once the player exits the game, so that it does not report multiple times
     {
         if (ConsentForm.dataConsent == true)
