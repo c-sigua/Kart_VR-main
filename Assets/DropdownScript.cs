@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class DropdownScript : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown _dropdown;
-    public static string userGender = "";
+    public static string userGender = "Non-Binary";
     // Start is called before the first frame update
     void Start()
     {
