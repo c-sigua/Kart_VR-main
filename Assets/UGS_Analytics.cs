@@ -86,6 +86,7 @@ public class UGS_Analytics : MonoBehaviour
 
     public void PlayerDemographicsCustomEvent()
     {
+        Debug.Log(DropdownScript.userGender);
         Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 { "age", SliderScript.userAge},
