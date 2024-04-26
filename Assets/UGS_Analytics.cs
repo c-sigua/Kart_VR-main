@@ -69,8 +69,13 @@ public class UGS_Analytics : MonoBehaviour
 
     public void PlayerBehaviorCustomEvent()
     {
+        //Debug.Log(GameFlowManager.gamesWon.ToString() + "/" + GameFlowManager.gamesLost.ToString());
         Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
+                { "timesEasyPlayed", (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Easy"]},
+                { "timesMediumPlayed", (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Medium"]},
+                { "timesHardPlayed", (int)KartGame.UI.LoadSceneButton.timesLevelPlayed["Level_Hard"]},
+                { "winLossRatio", GameFlowManager.gamesWon.ToString() + " / " + GameFlowManager.gamesLost.ToString()},
                 { "isCompletionist", isCompletionist},
                 { "isResilient", isResilient },
                 { "isBold", isBold}

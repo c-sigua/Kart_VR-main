@@ -47,6 +47,8 @@ public class GameFlowManager : MonoBehaviour
     public bool autoFindKarts = true;
     public ArcadeKart playerKart;
 	public float timeTaken =0;
+    public static int gamesLost = 0;
+    public static int gamesWon = 0;
 
     ArcadeKart[] karts;
     ObjectiveManager m_ObjectiveManager;
@@ -83,9 +85,7 @@ public class GameFlowManager : MonoBehaviour
         {
 			k.SetCanMove(false);
         }
-		//var myScript = GameObject.Find("UGS_Analytics").GetComponent("PlayTimeCustomEvent");
-		//  var customEvent = GameObject.FindObjectOfType(typeof(UGS_Analytics)) as UGS_Analytics;
-		//myScript.PlayTimeCustomEvent();
+		
 
         //run race countdown animation
         ShowRaceCountdownAnimation();
@@ -163,25 +163,6 @@ public class GameFlowManager : MonoBehaviour
     void EndGame(bool win)
     {
 
-        
-        /* float userTimeElapsed = TimeManager.timeElapsed;
-         Debug.Log("ended");
-         Debug.Log(TimeManager.timeElapsed);
-
-
-         Dictionary<string, object> parameters = new Dictionary<string, object>()
-             {
-                 { "playTime", userTimeElapsed}
-             };
-
-         // The ‘timeElapsed’ event will get cached locally
-         //and sent during the next scheduled upload, within 1 minute
-         AnalyticsService.Instance.CustomData("timeElapsed", parameters);
-
-         // You can call Events.Flush() to send the event immediately
-         AnalyticsService.Instance.Flush();
-        */
-       // var myScript = GameObject.Find(UGS_Analytics).GetComponent<SendAnalyticsData>();
         // unlocks the cursor before leaving the scene, to be able to click buttons
 
         Cursor.lockState = CursorLockMode.None;
@@ -194,17 +175,9 @@ public class GameFlowManager : MonoBehaviour
         endGameFadeCanvasGroup.gameObject.SetActive(true);
         if (win)
         {
-            	//GameObject.Find("PlayTimeCustomEvent").GetComponent<UGS_Analytics>();
-            //script.PlayTimeCustomEvent();
-
-            /*	UGS_Analytics.Initialize.AnalyticsEvent.Custom("timeElapsed", new Dictionary<string, object>
-                {
-                    {"playTime", TimeManager.totalTimeElapsed}
-                });*/
+            gamesWon++;
             m_SceneToLoad = winSceneName;
             m_TimeLoadEndGameScene = Time.time + endSceneLoadDelay + delayBeforeFadeToBlack;
-
-			//timeTaken = GameObject.Find("GameManager").GetComponent<TimeManager>().totalTimeElapsed;
 
             // play a sound on win
             var audioSource = gameObject.AddComponent<AudioSource>();
@@ -219,6 +192,7 @@ public class GameFlowManager : MonoBehaviour
         }
         else
         {
+            gamesLost++;
             m_SceneToLoad = loseSceneName;
             m_TimeLoadEndGameScene = Time.time + endSceneLoadDelay + delayBeforeFadeToBlack;
 
