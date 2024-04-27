@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/Brennan Stout/Microgame_test/Kart_VR-main/Builds;C:/Users/css190001/Documents/GitHub/Kart_VR-main/Builds;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Brennan Stout/Microgame_test/Kart_VR-main/Builds/WebGL/v2;C:/Users/Brennan Stout/Microgame_test/Kart_VR-main/Builds/WebGL/v1;C:/Users/Brennan Stout/Microgame_test/Kart_VR-main/Builds;C:/Users/css190001/Documents/GitHub/Kart_VR-main/Builds;;;;;;\"}"
             }
         ]
     }
